@@ -9,13 +9,13 @@ function SocialPlatform() {
       <h2 className="font-semibold">Find Us On</h2>
       <div className="flex flex-col gap-3 mt-3">
         <div className="btn justify-start">
-          <FaFacebookF className="mr-1" /> Facebook
+          <FaFacebookF className="mr-1 text-[#1877F2]" /> Facebook
         </div>
         <div className="btn justify-start">
-          <FaTwitter className="mr-1" /> Twitter
+          <FaTwitter className="mr-1 text-[#1da1f2]" /> Twitter
         </div>
-        <div className="btn justify-start">
-          <FaInstagram className="mr-1" /> Instagram
+        <div className="btn justify-start ">
+          <FaInstagram className="mr-1 text-[#FA7E1E]" /> Instagram
         </div>
       </div>
     </div>
