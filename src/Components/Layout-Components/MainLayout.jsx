@@ -1,9 +1,18 @@
-import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 function MainLayout() {
+  const data = useLoaderData() ?? []; // default to empty array
+
   return (
     <div>
-      <h2 className="font-bold pb-5">Category New</h2>
+      {data.length === 0
+        ? ""
+        : data.map((news) => (
+            <div className="flex flex-col">
+              <p key={news._id}>{news.title}</p>
+              <br />
+            </div>
+          ))}
     </div>
   );
 }

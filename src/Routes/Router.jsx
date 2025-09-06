@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomeLayout from "../Layouts/HomeLayout";
+import MainLayout from "../Components/Layout-Components/MainLayout";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <h1>Category section</h1>,
+        element: <MainLayout></MainLayout>,
+        loader: async ({ params }) => {
+          const res = await fetch(
+            `https://openapi.programming-hero.com/api/news/category/${params.id}`
+          );
+          const json = await res.json();
+          return json.data; // return the array directly
+        },
       },
     ],
   },

@@ -25,6 +25,7 @@ function HomeLayout() {
           <LeftNavbar></LeftNavbar>
         </aside>
         <section className="main col-span-6">
+          <h1 className="font-semibold">Category News</h1>
           <MainLayout></MainLayout>
           <Outlet></Outlet>
         </section>
