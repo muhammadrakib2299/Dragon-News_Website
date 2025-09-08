@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             `https://openapi.programming-hero.com/api/news/category/${params.id}`
           );
           const json = await res.json();
-          return json.data; // return the array directly
+          return json.data;
         },
       },
     ],

@@ -12,20 +12,20 @@ function HomeLayout() {
     <div>
       <header>
         <Header></Header>
-        <section className="w-10/12 mx-auto py-5">
+        <section className="w-9/12 mx-auto py-5">
           <LatestNews></LatestNews>
         </section>
-        <nav className="w-10/12 mx-auto py-2">
+        <nav className="w-9/12 mx-auto py-2">
           <Navbar></Navbar>
         </nav>
       </header>
       <nav></nav>
-      <main className="w-10/12 mx-auto pt-5 grid md:grid-cols-12 gap-3">
+      <main className="w-9/12 mx-auto pt-5 grid md:grid-cols-12 gap-3">
         <aside className="left col-span-3">
           <LeftNavbar></LeftNavbar>
         </aside>
-        <section className="main col-span-6">
-          <h1 className="font-semibold">Category News</h1>
+        <section className="main col-span-6 pl-5">
+          <h1 className="font-semibold pb-5">Dragon News Home</h1>
           <MainLayout></MainLayout>
           <Outlet></Outlet>
         </section>

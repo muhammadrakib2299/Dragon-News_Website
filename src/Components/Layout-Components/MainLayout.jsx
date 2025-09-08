@@ -1,18 +1,14 @@
 import { useLoaderData } from "react-router-dom";
+import NewCard from "../NewCard";
 
 function MainLayout() {
-  const data = useLoaderData() ?? []; // default to empty array
+  const data = useLoaderData() ?? [];
 
   return (
     <div>
-      {data.length === 0
-        ? ""
-        : data.map((news) => (
-            <div className="flex flex-col">
-              <p key={news._id}>{news.title}</p>
-              <br />
-            </div>
-          ))}
+      {data.map((news) => (
+        <NewCard key={news._id} news={news}></NewCard>
+      ))}
     </div>
   );
 }
