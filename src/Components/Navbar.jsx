@@ -12,7 +12,9 @@ function Navbar() {
       </div>
       <div className="flex items-center space-x-2">
         <img src={userIcon} alt="" />
-        <button className="btn btn-neutral rounded-none px-5">Login</button>
+        <Link to="/auth/login" className="btn btn-neutral rounded-none px-5">
+          Login
+        </Link>
       </div>
     </div>
   );
