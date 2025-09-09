@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -30,6 +31,23 @@ function Login() {
               </div>
               <button className="btn btn-neutral mt-4">Login</button>
             </fieldset>
+            <div>
+              <p className="text-center">
+                New to Dragon News?{" "}
+                <Link
+                  to="/auth/register"
+                  className="text-blue-600 font-semibold link link-hover"
+                >
+                  Register
+                </Link>
+              </p>
+            </div>
+            <div className="divider">OR</div>
+            <div className="text-center">
+              <button className="btn btn-outline btn-secondary w-full">
+                Login with Google
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>
