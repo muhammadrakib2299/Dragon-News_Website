@@ -6,9 +6,9 @@ function Navbar() {
     <div className="flex justify-between items-center px-4">
       <div className=""></div>
       <div className="nav space-x-4">
-        <Link to="/home">Home</Link>
-        <Link to="/career">Career</Link>
-        <Link to="/about">About</Link>
+        <Link to="/">Home</Link>
+        <Link to="/pages/career">Career</Link>
+        <Link to="/pages/about">About</Link>
       </div>
       <div className="flex items-center space-x-4">
         <img src={userIcon} alt="" />

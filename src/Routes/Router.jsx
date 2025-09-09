@@ -4,6 +4,9 @@ import MainLayout from "../Components/Layout-Components/MainLayout";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import About from "../Pages/About";
+import Career from "../Pages/Career";
+import PageLayout from "../Layouts/pageLayout";
 
 const router = createBrowserRouter([
   {
@@ -28,10 +31,6 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/news",
-    element: <h1>News Layout</h1>,
-  },
-  {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,
     children: [
@@ -42,6 +41,20 @@ const router = createBrowserRouter([
       {
         path: "/auth/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <PageLayout></PageLayout>,
+    children: [
+      {
+        path: "/pages/about",
+        element: <About></About>,
+      },
+      {
+        path: "/pages/career",
+        element: <Career></Career>,
       },
     ],
   },

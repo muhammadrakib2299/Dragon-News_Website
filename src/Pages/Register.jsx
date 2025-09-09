@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Register() {
   return (
-    <div className="text-center text-2xl mt-20">
+    <div className="text-center text-2xl mt-10">
       <div className="flex min-h-[calc(100vh-300px)] justify-center items-center">
         <motion.div
           className="hero"
@@ -18,7 +18,7 @@ function Register() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <div className="card-body py-10 px-12">
+            <div className="card-body py-8 px-12">
               <h2 className="text-2xl text-center pb-5 font-semibold">
                 Register your account
               </h2>
