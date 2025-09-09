@@ -10,9 +10,9 @@ function Navbar() {
         <Link to="/career">Career</Link>
         <Link to="/about">About</Link>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-4">
         <img src={userIcon} alt="" />
-        <Link to="/auth/login" className="btn btn-neutral rounded-none px-5">
+        <Link to="/auth/login" className="btn btn-neutral rounded px-6 ">
           Login
         </Link>
       </div>
