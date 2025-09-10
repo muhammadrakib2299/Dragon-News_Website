@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 function Register() {
   const { CreateNewUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // Handle Form Submit
   const handleRegistration = (event) => {
@@ -25,7 +26,8 @@ function Register() {
         setUser(user);
         // reset form
         event.target.reset();
-        toast.success("User has been Registration successfully");
+        toast.success("Registration successful");
+        navigate("/");
       })
       .catch(() => {
         toast.error("Something went wrong, Please try again");

@@ -10,9 +10,6 @@ function Navbar() {
   return (
     <div className="flex justify-between items-center px-4">
       <Toaster position="top-right" reverseOrder={false} />
-
-      <div>{user && user.email}</div>
-
       <div className="nav space-x-4">
         <Link to="/">Home</Link>
         <Link to="/pages/career">Career</Link>

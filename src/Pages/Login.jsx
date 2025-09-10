@@ -1,17 +1,18 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 function Login() {
   const { LoginUser, setUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigatePath = useNavigate();
 
   // Handle Form Submit
   const HandleLoginSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-
     const email = formData.get("email");
     const password = formData.get("password");
 
@@ -22,6 +23,7 @@ function Login() {
         setUser(user);
         event.target.reset();
         toast.success("User has been Login successfully");
+        navigatePath(location.state?.pathname || "/", { replace: true });
       })
       .catch((error) => {
         alert(error.message);
@@ -29,64 +31,66 @@ function Login() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-300px)] justify-center items-center mt-20">
-      <Toaster position="top-right" reverseOrder={false} />
-      <motion.div
-        className="hero"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
+    <div>
+      <div className="flex min-h-[calc(100vh-300px)] justify-center items-center mt-20">
+        <Toaster position="top-right" reverseOrder={false} />
         <motion.div
-          className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          className="hero"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <form onSubmit={HandleLoginSubmit} className="card-body py-10">
-            <h2 className="text-2xl text-center pb-5 font-semibold">
-              Login your account
-            </h2>
-            <fieldset className="fieldset">
-              <label className="label">Email</label>
-              <input
-                name="email"
-                type="email"
-                className="input"
-                placeholder="Email"
-                required
-              />
-              <label className="label pt-3">Password</label>
-              <input
-                name="password"
-                type="password"
-                className="input"
-                placeholder="Password"
-                required
-              />
-              <div className="flex justify-between items-center">
-                <a className="link link-hover">Forgot password?</a>
+          <motion.div
+            className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <form onSubmit={HandleLoginSubmit} className="card-body py-10">
+              <h2 className="text-2xl text-center pb-5 font-semibold">
+                Login your account
+              </h2>
+              <fieldset className="fieldset">
+                <label className="label">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  className="input"
+                  placeholder="Email"
+                  required
+                />
+                <label className="label pt-3">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  required
+                />
+                <div className="flex justify-between items-center">
+                  <a className="link link-hover">Forgot password?</a>
+                </div>
+                <button className="btn btn-neutral mt-4">Login</button>
+              </fieldset>
+              <div className="flex justify-center items-center gap-2 px-2 mt-2">
+                <p>New to Dragon News? </p>
+                <Link
+                  to="/auth/register"
+                  className="text-blue-600 font-semibold link link-hover"
+                >
+                  Register
+                </Link>
               </div>
-              <button className="btn btn-neutral mt-4">Login</button>
-            </fieldset>
-            <div className="flex justify-center items-center gap-2 px-2 mt-2">
-              <p>New to Dragon News? </p>
-              <Link
-                to="/auth/register"
-                className="text-blue-600 font-semibold link link-hover"
-              >
-                Register
-              </Link>
-            </div>
-            <div className="divider">OR</div>
-            <div className="text-center">
-              <button className="btn btn-outline btn-secondary w-full">
-                Login with Google
-              </button>
-            </div>
-          </form>
+              <div className="divider">OR</div>
+              <div className="text-center">
+                <button className="btn btn-outline btn-secondary w-full">
+                  Login with Google
+                </button>
+              </div>
+            </form>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 }
