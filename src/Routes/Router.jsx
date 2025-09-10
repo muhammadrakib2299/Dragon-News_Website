@@ -6,7 +6,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import About from "../Pages/About";
 import Career from "../Pages/Career";
-import PageLayout from "../Layouts/pageLayout";
+import PageLayout from "../Layouts/PageLayout";
 
 const router = createBrowserRouter([
   {
