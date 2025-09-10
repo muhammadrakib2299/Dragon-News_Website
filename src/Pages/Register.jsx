@@ -15,7 +15,6 @@ function Register() {
     // const photo = formData.get("photo");
     const email = formData.get("email");
     const password = formData.get("password");
-
     // See in console
     // console.log(name, photo, email, password);
 

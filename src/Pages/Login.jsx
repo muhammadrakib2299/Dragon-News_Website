@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 function Login() {
   const { LoginUser, setUser } = useContext(AuthContext);
@@ -20,6 +21,7 @@ function Login() {
         const user = result.user;
         setUser(user);
         event.target.reset();
+        toast.success("User has been Login successfully");
       })
       .catch((error) => {
         alert(error.message);
@@ -28,6 +30,7 @@ function Login() {
 
   return (
     <div className="flex min-h-[calc(100vh-300px)] justify-center items-center mt-20">
+      <Toaster position="top-right" reverseOrder={false} />
       <motion.div
         className="hero"
         initial={{ opacity: 0, y: 50 }}
