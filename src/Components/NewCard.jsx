@@ -1,6 +1,6 @@
-import React from "react";
 import { FaStar, FaRegEye } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function NewCard({ news }) {
   const { author } = news;
@@ -10,8 +10,8 @@ function NewCard({ news }) {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="w-full bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-xl my-5"
+      transition={{ duration: 0.5, ease: "easeIn" }}
+      className="w-full bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-xl my-8"
     >
       {/* Author Section */}
       <div className="p-4 flex items-center space-x-4">
@@ -61,14 +61,13 @@ function NewCard({ news }) {
         </div>
 
         {/* Read More Link */}
-        <motion.a
+        <motion.div
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
-          href="#"
-          className="block mt-3 text-sm text-blue-600 hover:underline w-fit"
+          className="block mt-3 text-sm text-blue-600 hover:underline w-fit pb-3"
         >
-          Read More
-        </motion.a>
+          <Link to={`/news/${news._id}`}>Read More</Link>
+        </motion.div>
       </div>
     </motion.div>
   );
