@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 function Login() {
+  const { LoginUser, setUser } = useContext(AuthContext);
+
+  // Handle Form Submit
+  const HandleLoginSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    //login user
+    LoginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        event.target.reset();
+        alert("User has been logged in successfully");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
   return (
-    <div className="flex min-h-[calc(100vh-300px)] justify-center items-center">
+    <div className="flex min-h-[calc(100vh-300px)] justify-center items-center mt-20">
       <motion.div
         className="hero"
         initial={{ opacity: 0, y: 50 }}
@@ -17,13 +41,14 @@ function Login() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div className="card-body py-10">
+          <form onSubmit={HandleLoginSubmit} className="card-body py-10">
             <h2 className="text-2xl text-center pb-5 font-semibold">
               Login your account
             </h2>
             <fieldset className="fieldset">
               <label className="label">Email</label>
               <input
+                name="email"
                 type="email"
                 className="input"
                 placeholder="Email"
@@ -31,6 +56,7 @@ function Login() {
               />
               <label className="label pt-3">Password</label>
               <input
+                name="password"
                 type="password"
                 className="input"
                 placeholder="Password"
@@ -58,7 +84,7 @@ function Login() {
                 Login with Google
               </button>
             </div>
-          </div>
+          </form>
         </motion.div>
       </motion.div>
     </div>
