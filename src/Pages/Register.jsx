@@ -18,7 +18,7 @@ function Register() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <div className="card-body py-8 px-12">
+            <div className="card-body py-8 px-10">
               <h2 className="text-2xl text-center pb-5 font-semibold">
                 Register your account
               </h2>
@@ -28,6 +28,7 @@ function Register() {
                   type="text pt-2"
                   className="input w-full"
                   placeholder="Enter your name"
+                  required
                 />
 
                 <label className="label pt-2">Photo URL</label>
@@ -35,6 +36,7 @@ function Register() {
                   type="text"
                   className="input w-full"
                   placeholder="Enter photo URL"
+                  required
                 />
 
                 <label className="label pt-2">Email</label>
@@ -42,6 +44,7 @@ function Register() {
                   type="email"
                   className="input w-full"
                   placeholder="Enter your email address"
+                  required
                 />
 
                 <label className="label pt-2">Password</label>
@@ -49,10 +52,11 @@ function Register() {
                   type="password"
                   className="input w-full"
                   placeholder="Password"
+                  required
                 />
 
                 <label className="label pt-3">
-                  <input type="checkbox" className="checkbox mr-2" />
+                  <input type="checkbox" className="checkbox mr-2" required />
                   Accept Terms & Conditions
                 </label>
 

@@ -23,9 +23,19 @@ function Login() {
             </h2>
             <fieldset className="fieldset">
               <label className="label">Email</label>
-              <input type="email" className="input" placeholder="Email" />
+              <input
+                type="email"
+                className="input"
+                placeholder="Email"
+                required
+              />
               <label className="label pt-3">Password</label>
-              <input type="password" className="input" placeholder="Password" />
+              <input
+                type="password"
+                className="input"
+                placeholder="Password"
+                required
+              />
               <div className="flex justify-between items-center">
                 <a className="link link-hover">Forgot password?</a>
               </div>
