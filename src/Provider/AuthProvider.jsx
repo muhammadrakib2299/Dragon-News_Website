@@ -13,6 +13,7 @@ const auth = getAuth(app);
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Create New User
   const CreateNewUser = (email, password) => {
@@ -34,6 +35,8 @@ function AuthProvider({ children }) {
     CreateNewUser,
     LoginUser,
     logoutUser,
+    loading,
+    setLoading,
   };
 
   // set oberver for user auth state change
@@ -41,12 +44,15 @@ function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setLoading(false);
       } else {
         setUser(null);
+        setLoading(false);
       }
     });
     return () => {
       unsubscribe();
+      setLoading(true);
     };
   }, []);
 
