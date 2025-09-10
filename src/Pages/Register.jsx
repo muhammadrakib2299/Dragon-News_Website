@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 function Register() {
   const { CreateNewUser, setUser } = useContext(AuthContext);
@@ -10,12 +11,13 @@ function Register() {
   const handleRegistration = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const name = formData.get("name");
-    const photo = formData.get("photo");
+    // const name = formData.get("name");
+    // const photo = formData.get("photo");
     const email = formData.get("email");
     const password = formData.get("password");
+
     // See in console
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
     // send data to firebase
     CreateNewUser(email, password)
@@ -24,16 +26,17 @@ function Register() {
         setUser(user);
         // reset form
         event.target.reset();
-        alert("User has been created successfully");
+        toast.success("User has been Registration successfully");
       })
-      .catch((error) => {
-        alert(error.message);
+      .catch(() => {
+        toast.error("Something went wrong, Please try again");
       });
   };
 
   return (
     <div className="text-center text-2xl mt-10">
       <div className="flex min-h-[calc(100vh-300px)] justify-center items-center">
+        <Toaster position="top-right" reverseOrder={false} />
         <motion.div
           className="hero"
           initial={{ opacity: 0, y: 50 }}
