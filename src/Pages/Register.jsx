@@ -99,16 +99,14 @@ function Register() {
 
                 <button className="btn btn-neutral mt-4">Register</button>
               </fieldset>
-              <div>
-                <p className="text-center pt-2">
-                  Already have an account?{" "}
-                  <Link
-                    to="/auth/login"
-                    className="text-blue-600 font-semibold link link-hover"
-                  >
-                    Login
-                  </Link>
-                </p>
+              <div className="flex justify-between mt-2 px-2">
+                <span>Already have an account? </span>
+                <Link
+                  to="/auth/login"
+                  className="text-blue-600 font-semibold link link-hover"
+                >
+                  Login
+                </Link>
               </div>
               <div className="divider">OR</div>
               <div className="text-center">
