@@ -7,7 +7,7 @@ function Register() {
   const { CreateNewUser, setUser } = useContext(AuthContext);
 
   // Handle Form Submit
-  const handleRegistratonSubmit = (event) => {
+  const handleRegistration = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const name = formData.get("name");
@@ -22,7 +22,6 @@ function Register() {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        console.log(user);
         // reset form
         event.target.reset();
         alert("User has been created successfully");
@@ -48,7 +47,7 @@ function Register() {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <form
-              onSubmit={handleRegistratonSubmit}
+              onSubmit={handleRegistration}
               className="card-body py-8 px-10"
             >
               <h2 className="text-2xl text-center pb-5 font-semibold">

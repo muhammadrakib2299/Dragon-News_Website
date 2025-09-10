@@ -20,7 +20,6 @@ function Login() {
         const user = result.user;
         setUser(user);
         event.target.reset();
-        alert("User has been logged in successfully");
       })
       .catch((error) => {
         alert(error.message);
