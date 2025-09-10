@@ -1,8 +1,37 @@
-import React from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 function Register() {
+  const { CreateNewUser, setUser } = useContext(AuthContext);
+
+  // Handle Form Submit
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const photo = formData.get("photo");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    // See in console
+    console.log(name, photo, email, password);
+
+    // send data to firebase
+    CreateNewUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        console.log(user);
+        // reset form
+        event.target.reset();
+        alert("User has been created successfully");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
   return (
     <div className="text-center text-2xl mt-10">
       <div className="flex min-h-[calc(100vh-300px)] justify-center items-center">
@@ -18,13 +47,14 @@ function Register() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <div className="card-body py-8 px-10">
+            <form onSubmit={handleSubmit} className="card-body py-8 px-10">
               <h2 className="text-2xl text-center pb-5 font-semibold">
                 Register your account
               </h2>
               <fieldset className="fieldset">
                 <label className="label">Your Name</label>
                 <input
+                  name="name"
                   type="text pt-2"
                   className="input w-full"
                   placeholder="Enter your name"
@@ -33,6 +63,7 @@ function Register() {
 
                 <label className="label pt-2">Photo URL</label>
                 <input
+                  name="photo"
                   type="text"
                   className="input w-full"
                   placeholder="Enter photo URL"
@@ -41,6 +72,7 @@ function Register() {
 
                 <label className="label pt-2">Email</label>
                 <input
+                  name="email"
                   type="email"
                   className="input w-full"
                   placeholder="Enter your email address"
@@ -49,6 +81,7 @@ function Register() {
 
                 <label className="label pt-2">Password</label>
                 <input
+                  name="password"
                   type="password"
                   className="input w-full"
                   placeholder="Password"
@@ -79,7 +112,7 @@ function Register() {
                   Register with Google
                 </button>
               </div>
-            </div>
+            </form>
           </motion.div>
         </motion.div>
       </div>
