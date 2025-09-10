@@ -12,19 +12,28 @@ function SocialPlatform() {
         <div className="btn justify-start">
           <Link
             className="flex items-center"
-            target="0_blank"
+            target="blank"
             to="https://www.facebook.com/"
           >
-            <FaFacebookF className="mr-1 text-[#1877F2]" /> Facebook
+            <FaFacebookF className="mr-1 text-[#1877F2]" />
+            Facebook
           </Link>
         </div>
         <div className="btn justify-start">
-          <Link className="flex items-center" to="https://www.twitter.com/">
+          <Link
+            className="flex items-center"
+            target="blank"
+            to="https://www.twitter.com/"
+          >
             <FaTwitter className="mr-1 text-[#1da1f2]" /> Twitter
           </Link>
         </div>
         <div className="btn justify-start ">
-          <Link className="flex items-center" to="https://www.instagram.com/">
+          <Link
+            className="flex items-center"
+            target="blank"
+            to="https://www.instagram.com/"
+          >
             <FaInstagram className="mr-1 text-[#FA7E1E]" /> Instagram
           </Link>
         </div>
