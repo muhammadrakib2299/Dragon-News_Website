@@ -6,6 +6,7 @@ import LeftNavbar from "../Components/Layout-Components/LeftNavbar";
 import RightNavbar from "../Components/Layout-Components/RightNavbar";
 import { Outlet } from "react-router-dom";
 import MainLayout from "../Components/Layout-Components/MainLayout";
+import QZone from "../Components/QZone";
 
 function HomeLayout() {
   return (
@@ -31,6 +32,7 @@ function HomeLayout() {
         </section>
         <aside className="right col-span-3">
           <RightNavbar></RightNavbar>
+          <QZone></QZone>
         </aside>
       </main>
     </div>
